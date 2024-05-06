@@ -18,3 +18,6 @@ https://asciinema.org/a/qq6X0EdK0fotnHWy8nE5WkvDg
 
 https://asciinema.org/a/E1167wFV7o9lmmAGjemMHnj6M
 
+### Asciinema-link for "brain-progression" game:
+
+https://asciinema.org/a/K2apSiz4rcEsKey5y5dMEymE9

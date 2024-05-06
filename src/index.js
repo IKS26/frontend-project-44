@@ -8,14 +8,14 @@ export const greetings = () => {
    return name;
 };
 
-export const userAnswer = (question) => {
+export const userAnswer = (progression) => {
    const userAnswer = readlineSync.question(
-      `Question: ${question}\nYour answer: `
+      `Question: ${progression}\nYour answer: `
    );
    return userAnswer;
 };
 
-const gameEngine = (gameInstructions, generateQuestion, checkAnswer) => {
+const gameEngine = (gameInstructions, generateProgression, checkAnswer) => {
    const name = greetings();
    console.log(gameInstructions());
 
@@ -23,22 +23,30 @@ const gameEngine = (gameInstructions, generateQuestion, checkAnswer) => {
    let gameContinue = true;
 
    while (correctAnswersCount < 3 && gameContinue) {
-      const { question, correctAnswer } = generateQuestion();
-      const answer = userAnswer(question);
-
-      if (checkAnswer(answer, correctAnswer)) {
-         console.log("Correct!");
+      gameContinue = playRound(generateProgression, checkAnswer, name);
+      if (gameContinue) {
          correctAnswersCount += 1;
-      } else {
-         console.log(
-            `'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}!`
-         );
-         gameContinue = false;
       }
    }
 
    if (gameContinue) {
       console.log(`Congratulations, ${name}!`);
+   }
+};
+
+const playRound = (generateProgression, checkAnswer, name) => {
+   const { progression, hiddenNumber } = generateProgression();
+   const answer = userAnswer(progression.join(" "));
+   const correctAnswer = String(hiddenNumber);
+
+   if (checkAnswer(answer, correctAnswer)) {
+      console.log("Correct!");
+      return true;
+   } else {
+      console.log(
+         `'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}!`
+      );
+      return false;
    }
 };
 
