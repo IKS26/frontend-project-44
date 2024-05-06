@@ -8,14 +8,14 @@ export const greetings = () => {
    return name;
 };
 
-export const userAnswer = (progression) => {
+export const userAnswer = (question) => {
    const userAnswer = readlineSync.question(
-      `Question: ${progression}\nYour answer: `
+      `Question: ${question}\nYour answer: `
    );
    return userAnswer;
 };
 
-const gameEngine = (gameInstructions, generateProgression, checkAnswer) => {
+const gameEngine = (gameInstructions, generateQuestion, checkAnswer) => {
    const name = greetings();
    console.log(gameInstructions());
 
@@ -23,7 +23,7 @@ const gameEngine = (gameInstructions, generateProgression, checkAnswer) => {
    let gameContinue = true;
 
    while (correctAnswersCount < 3 && gameContinue) {
-      gameContinue = playRound(generateProgression, checkAnswer, name);
+      gameContinue = playRound(generateQuestion, checkAnswer, name);
       if (gameContinue) {
          correctAnswersCount += 1;
       }
@@ -34,10 +34,9 @@ const gameEngine = (gameInstructions, generateProgression, checkAnswer) => {
    }
 };
 
-const playRound = (generateProgression, checkAnswer, name) => {
-   const { progression, hiddenNumber } = generateProgression();
-   const answer = userAnswer(progression.join(" "));
-   const correctAnswer = String(hiddenNumber);
+const playRound = (generateQuestion, checkAnswer, name) => {
+   const { question, correctAnswer } = generateQuestion();
+   const answer = userAnswer(question);
 
    if (checkAnswer(answer, correctAnswer)) {
       console.log("Correct!");

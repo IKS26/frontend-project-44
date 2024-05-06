@@ -5,7 +5,7 @@ const gameInstructions = () => {
    return `What number is missing in the progression?`;
 };
 
-function generateProgression() {
+function generateQuestion() {
    const length = Math.floor(Math.random() * 6) + 5;
    const start = Math.floor(Math.random() * 10);
    const step = Math.floor(Math.random() * 10) + 1;
@@ -20,9 +20,12 @@ function generateProgression() {
       }
    }
 
+   const question = progression.join(" ");
+   const correctAnswer = String(start + step * hiddenIndex);
+
    return {
-      progression,
-      hiddenNumber: start + step * hiddenIndex,
+      question,
+      correctAnswer,
    };
 }
 
@@ -30,4 +33,4 @@ const checkAnswer = (userAnswer, correctAnswer) => {
    return userAnswer === correctAnswer;
 };
 
-gameEngine(gameInstructions, generateProgression, checkAnswer);
+gameEngine(gameInstructions, generateQuestion, checkAnswer);
