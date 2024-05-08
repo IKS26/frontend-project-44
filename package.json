@@ -8,10 +8,10 @@
    "bin": {
       "brain-games": "bin/brain-games.js",
       "brain-even": "bin/games/brain-even.js",
-		"brain-calc": "bin/games/brain-calc.js",
-		"brain-gcd": "bin/games/brain-gcd.js",
-		"brain-progression": "bin/games/brain-progression.js",
-		"brain-prime": "bin/games/brain-prime.js"
+      "brain-calc": "bin/games/brain-calc.js",
+      "brain-gcd": "bin/games/brain-gcd.js",
+      "brain-progression": "bin/games/brain-progression.js",
+      "brain-prime": "bin/games/brain-prime.js"
    },
    "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1"
@@ -30,6 +30,7 @@
       "readline-sync": "^1.4.10"
    },
    "devDependencies": {
+      "@eslint/js": "^9.2.0",
       "eslint": "^8.2.0",
       "eslint-config-airbnb-base": "^15.0.0",
       "eslint-plugin-import": "^2.29.1"
