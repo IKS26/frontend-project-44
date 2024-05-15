@@ -42,7 +42,7 @@ export const playGame = (generateGameData, gameName) => {
     const answer = readlineSync.question('Your answer: ');
     if (answer !== correctAnswer) {
       console.log(
-        `'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`,
+        `'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}!`,
       );
       gameWon = false;
       break;
