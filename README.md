@@ -6,27 +6,7 @@
 
 [![Actions Status](https://github.com/IKS26/frontend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/IKS26/frontend-project-44/actions)
 
-### Asciinema-link for "brain-even" game:
-
-https://asciinema.org/a/XKiyVf46mOCuhpSnuEYUkSmgK
-
-### Asciinema-link for "brain-calc" game:
-
-https://asciinema.org/a/qq6X0EdK0fotnHWy8nE5WkvDg
-
-### Asciinema-link for "brain-gcd" game:
-
-https://asciinema.org/a/E1167wFV7o9lmmAGjemMHnj6M
-
-### Asciinema-link for "brain-progression" game:
-
-https://asciinema.org/a/K2apSiz4rcEsKey5y5dMEymE9
-
-### Asciinema-link for "brain-prime" game:
-
-https://asciinema.org/a/VolSyhMTo4NhjSjfirGyZX2dN
-
-# Игры Разума
+## Игры Разума
 
 "Игры Разума" - это набор из пяти консольных игр, построенных по принципу популярных мобильных приложений для прокачки мозга.
 
@@ -47,16 +27,60 @@ https://asciinema.org/a/VolSyhMTo4NhjSjfirGyZX2dN
 
 ## Установка
 
-1. Клонируйте репозиторий на ваш локальный компьютер с помощью команды `git clone`.
-2. Перейдите в каталог проекта с помощью команды `cd`.
-3. Установите все зависимости с помощью команды `npm install`.
+### 1. Клонируйте репозиторий на ваш локальный компьютер с помощью команды:
+```
+git clone
+```
+### 2. Перейдите в каталог проекта с помощью команды:
+```
+cd
+```
+### 3. Установите все зависимости с помощью команды:
+```
+npm install
+```
 
 ## Запуск игр
 
 Каждую игру можно запустить с помощью соответствующей команды:
 
-- Калькулятор: `brain-calc`
-- Прогрессия: `brain-progression`
-- Определение четного числа: `brain-even`
-- Определение наибольшего общего делителя: `brain-gcd`
-- Определение простого числа: `brain-prime`
+### Игра "Калькулятор"
+```
+brain-calc
+```
+### Игра "Прогрессия"
+```
+brain-progression
+```
+### Игра "Определение четного числа"
+```
+brain-even
+```
+### Игра "Определение наибольшего общего делителя"
+```
+brain-gcd
+```
+### Игра "Определение простого числа"
+```
+brain-prime
+```
+
+## Asciinema-link for "brain-even" game:
+
+[![asciicast](https://asciinema.org/a/XKiyVf46mOCuhpSnuEYUkSmgK.svg)](https://asciinema.org/a/XKiyVf46mOCuhpSnuEYUkSmgK)
+
+## Asciinema-link for "brain-calc" game:
+
+[![asciicast](https://asciinema.org/a/qq6X0EdK0fotnHWy8nE5WkvDg.svg)](https://asciinema.org/a/qq6X0EdK0fotnHWy8nE5WkvDg)
+
+## Asciinema-link for "brain-gcd" game:
+
+[![asciicast](https://asciinema.org/a/E1167wFV7o9lmmAGjemMHnj6M.svg)](https://asciinema.org/a/E1167wFV7o9lmmAGjemMHnj6M)
+
+## Asciinema-link for "brain-progression" game:
+
+[![asciicast](https://asciinema.org/a/K2apSiz4rcEsKey5y5dMEymE9.svg)](https://asciinema.org/a/K2apSiz4rcEsKey5y5dMEymE9)
+
+## Asciinema-link for "brain-prime" game:
+
+[![asciicast](https://asciinema.org/a/VolSyhMTo4NhjSjfirGyZX2dN.svg)](https://asciinema.org/a/VolSyhMTo4NhjSjfirGyZX2dN)

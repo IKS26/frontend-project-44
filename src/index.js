@@ -1,49 +1,54 @@
 import readlineSync from 'readline-sync';
 
-export const greetings = () => {
+export const askPrimeGameQuestion = (gameName) => {
+  switch (gameName) {
+    case 'brain-calc':
+      console.log('What is the result of the expression?');
+      break;
+    case 'brain-even':
+      console.log(
+        'Answer "yes" if the number is even, otherwise answer "no".',
+      );
+      break;
+    case 'brain-gcd':
+      console.log('Find the greatest common divisor of given numbers.');
+      break;
+    case 'brain-prime':
+      console.log(
+        'Answer "yes" if given number is prime. Otherwise answer "no".',
+      );
+      break;
+    case 'brain-progression':
+      console.log('What number is missing in the progression?');
+      break;
+    default:
+      throw new Error('Unknown game name');
+  }
+};
+
+export const playGame = (generateGameData, gameName) => {
   const name = readlineSync.question(
     'Welcome to the Brain Games!\nMay I have your name? ',
   );
   console.log(`Hello, ${name}!`);
-  return name;
-};
 
-export const userAnswer = (question) => {
-  const answer = readlineSync.question(`Question: ${question}\nYour answer: `);
-  return answer;
-};
+  askPrimeGameQuestion(gameName);
 
-const gameEngine = (gameInstructions, generateQuestion, checkAnswer) => {
-  const name = greetings();
-  console.log(gameInstructions());
-
-  let correctAnswersCount = 0;
-  let gameContinue = true;
-
-  const playRound = () => {
-    const { question, correctAnswer } = generateQuestion();
-    const answer = userAnswer(question);
-
-    if (checkAnswer(answer, correctAnswer)) {
+  const quantityOfRounds = 3;
+  for (let i = 0; i < quantityOfRounds; i += 1) {
+    const { question, correctAnswer } = generateGameData();
+    console.log(`Question: ${question}`);
+    const answer = readlineSync.question('Your answer: ');
+    if (answer !== correctAnswer) {
+      console.log(
+        `'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`,
+      );
+      break;
+    } else {
       console.log('Correct!');
-      return true;
     }
-    console.log(
-      `'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}!`,
-    );
-    return false;
-  };
-
-  while (correctAnswersCount < 3 && gameContinue) {
-    gameContinue = playRound(generateQuestion, checkAnswer, name);
-    if (gameContinue) {
-      correctAnswersCount += 1;
+    if (quantityOfRounds - 1 === i) {
+      console.log(`Congratulations, ${name}!`);
     }
-  }
-
-  if (gameContinue) {
-    console.log(`Congratulations, ${name}!`);
   }
 };
-
-export default gameEngine;

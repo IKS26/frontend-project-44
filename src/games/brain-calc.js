@@ -1,13 +1,16 @@
-#!/usr/bin/env node
-import gameEngine from '../../src/index.js';
+import { playGame } from '../index.js';
+import generateRandomNumber from '../utils.js';
 
-const gameInstructions = () => 'What is the result of the expression?';
-
-const generateQuestion = () => {
-  const num1 = Math.floor(Math.random() * 100) + 1;
-  const num2 = Math.floor(Math.random() * 100) + 1;
+const generateRandomOperation = () => {
   const operations = ['+', '-', '*'];
   const operation = operations[Math.floor(Math.random() * operations.length)];
+  return operation;
+};
+
+const generateGameData = () => {
+  const num1 = generateRandomNumber(1, 100);
+  const num2 = generateRandomNumber(1, 100);
+  const operation = generateRandomOperation();
   const question = `${num1} ${operation} ${num2}`;
   let correctAnswer;
   switch (operation) {
@@ -26,6 +29,6 @@ const generateQuestion = () => {
   return { question, correctAnswer };
 };
 
-const checkAnswer = (userAnswer, correctAnswer) => userAnswer === correctAnswer;
+const playBrainCalc = () => playGame(generateGameData, 'brain-calc');
 
-gameEngine(gameInstructions, generateQuestion, checkAnswer);
+export default playBrainCalc;

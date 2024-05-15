@@ -1,10 +1,7 @@
 #!/usr/bin/env node
-import nameQuestion from '../src/cli.js';
 
-const greetings = () => {
-  console.log('Welcome to the Brain Games!');
-};
+import { makeGreetings, askQuestionAboutName } from '../src/cli.js';
 
-greetings();
+makeGreetings();
 
-nameQuestion();
+askQuestionAboutName();
