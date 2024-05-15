@@ -35,6 +35,7 @@ export const playGame = (generateGameData, gameName) => {
   askPrimeGameQuestion(gameName);
 
   const quantityOfRounds = 3;
+  let gameWon = true;
   for (let i = 0; i < quantityOfRounds; i += 1) {
     const { question, correctAnswer } = generateGameData();
     console.log(`Question: ${question}`);
@@ -43,12 +44,13 @@ export const playGame = (generateGameData, gameName) => {
       console.log(
         `'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`,
       );
+      gameWon = false;
       break;
     } else {
       console.log('Correct!');
     }
-    if (quantityOfRounds - 1 === i) {
-      console.log(`Congratulations, ${name}!`);
-    }
+  }
+  if (gameWon) {
+    console.log(`Congratulations, ${name}!`);
   }
 };

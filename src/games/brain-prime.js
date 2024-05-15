@@ -1,5 +1,5 @@
 import { playGame } from '../index.js';
-import generateRandomNumber from '../utils.js';
+import { generateEvenPrimeGameData } from '../utils.js';
 
 const isPrime = (number) => {
   const sqrt = Math.sqrt(number);
@@ -7,12 +7,7 @@ const isPrime = (number) => {
   return number > 1;
 };
 
-function generateGameData() {
-  const number = generateRandomNumber(1, 100);
-  const question = `${number}`;
-  const correctAnswer = isPrime(number) ? 'yes' : 'no';
-  return { question, correctAnswer };
-}
+const generateGameData = () => generateEvenPrimeGameData(isPrime, 1, 100);
 
 const playBrainPrime = () => playGame(generateGameData, 'brain-prime');
 
