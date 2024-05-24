@@ -1,4 +1,7 @@
-import { playGame } from '../index.js';
+import { gameDescriptions, playGame } from '../index.js';
+
+const gameName = 'brain-progression';
+const gameDescription = gameDescriptions[gameName];
 
 const generateLengthOfProgr = (length) => Math.floor(Math.random() * (length / 2 + 1)) + length / 2;
 const generateStartNumber = (length) => Math.floor(Math.random() * length);
@@ -32,6 +35,6 @@ const generateGameData = () => {
   };
 };
 
-const playBrainProgression = () => playGame(generateGameData, 'brain-progression');
+const playBrainProgression = () => playGame(generateGameData, gameDescription);
 
 export default playBrainProgression;

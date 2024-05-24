@@ -1,5 +1,8 @@
-import { playGame } from '../index.js';
-import { generateEvenPrimeGameData } from '../utils.js';
+import { gameDescriptions, playGame } from '../index.js';
+import generateRandomNumber from '../utils.js';
+
+const gameName = 'brain-prime';
+const gameDescription = gameDescriptions[gameName];
 
 const isPrime = (number) => {
   const sqrt = Math.sqrt(number);
@@ -7,8 +10,12 @@ const isPrime = (number) => {
   return number > 1;
 };
 
-const generateGameData = () => generateEvenPrimeGameData(isPrime, 1, 100);
-
-const playBrainPrime = () => playGame(generateGameData, 'brain-prime');
+const generateGameData = () => {
+  const number = generateRandomNumber(1, 100);
+  const question = `${number}`;
+  const correctAnswer = isPrime(number) ? 'yes' : 'no';
+  return { question, correctAnswer };
+};
+const playBrainPrime = () => playGame(generateGameData, gameDescription);
 
 export default playBrainPrime;

@@ -1,5 +1,8 @@
-import { playGame } from '../index.js';
+import { gameDescriptions, playGame } from '../index.js';
 import generateRandomNumber from '../utils.js';
+
+const gameName = 'brain-gcd';
+const gameDescription = gameDescriptions[gameName];
 
 const createDivisors = (num1, num2) => {
   const minNum = Math.min(num1, num2);
@@ -20,6 +23,6 @@ const generateGameData = () => {
   return { question, correctAnswer };
 };
 
-const playBrainGcd = () => playGame(generateGameData, 'brain-gcd');
+const playBrainGcd = () => playGame(generateGameData, gameDescription);
 
 export default playBrainGcd;

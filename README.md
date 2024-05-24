@@ -67,20 +67,20 @@ brain-prime
 
 ## Asciinema-link for "brain-even" game:
 
-[![asciicast](https://asciinema.org/a/XKiyVf46mOCuhpSnuEYUkSmgK.svg)](https://asciinema.org/a/XKiyVf46mOCuhpSnuEYUkSmgK)
+[![asciicast](https://https://asciinema.org/a/GEC2qFGsUs3NHIQONCTH4Pf6d.svg)](https://asciinema.org/a/GEC2qFGsUs3NHIQONCTH4Pf6d)
 
 ## Asciinema-link for "brain-calc" game:
 
-[![asciicast](https://asciinema.org/a/qq6X0EdK0fotnHWy8nE5WkvDg.svg)](https://asciinema.org/a/qq6X0EdK0fotnHWy8nE5WkvDg)
+[![asciicast](https://https://asciinema.org/a/iu8Nnx4NmcJojeVeMNtALWzBf.svg)](https://asciinema.org/a/iu8Nnx4NmcJojeVeMNtALWzBf)
 
 ## Asciinema-link for "brain-gcd" game:
 
-[![asciicast](https://asciinema.org/a/E1167wFV7o9lmmAGjemMHnj6M.svg)](https://asciinema.org/a/E1167wFV7o9lmmAGjemMHnj6M)
+[![asciicast](https://https://asciinema.org/a/EAn2YcOdWaGseukg495pfjJVP.svg)](https://asciinema.org/a/EAn2YcOdWaGseukg495pfjJVP)
 
 ## Asciinema-link for "brain-progression" game:
 
-[![asciicast](https://asciinema.org/a/K2apSiz4rcEsKey5y5dMEymE9.svg)](https://asciinema.org/a/K2apSiz4rcEsKey5y5dMEymE9)
+[![asciicast](https://https://asciinema.org/a/xlOqOk0LMNxE9FvXFSBXbdEaa.svg)](https://asciinema.org/a/xlOqOk0LMNxE9FvXFSBXbdEaa)
 
 ## Asciinema-link for "brain-prime" game:
 
-[![asciicast](https://asciinema.org/a/VolSyhMTo4NhjSjfirGyZX2dN.svg)](https://asciinema.org/a/VolSyhMTo4NhjSjfirGyZX2dN)
+[![asciicast](https://https://asciinema.org/a/yiLthZp081xwAAssEfsXSMWmJ.svg)](https://asciinema.org/a/yiLthZp081xwAAssEfsXSMWmJ)
