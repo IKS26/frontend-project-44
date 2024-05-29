@@ -1,39 +1,52 @@
-import js from '@eslint/js';
 import globals from 'globals';
-import prettierPlugin from 'eslint-plugin-prettier';
-import eslintConfigPrettier from 'eslint-config-prettier';
-import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { FlatCompat } from '@eslint/eslintrc';
+import pluginJs from '@eslint/js';
+import importPlugin from 'eslint-plugin-import';
 
-/** @type {import('eslint').Linter.FlatConfig[]} */
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+  recommendedConfig: pluginJs.configs.recommended,
+});
+
 export default [
   {
-    plugins: {
-      prettier: prettierPlugin,
-    },
-  },
-  {
-    ignores: ['node_modules/'],
-  },
-  js.configs.recommended,
-  {
     languageOptions: {
-      ecmaVersion: 'latest',
-      sourceType: 'module',
       globals: {
         ...globals.node,
-        ...globals.browser,
-        ...globals.es2021,
+        ...globals.jest,
+        es2021: true,
+        node: true,
+      },
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
       },
     },
-  },
-  {
-    files: ['**/*.js'],
     rules: {
-      ...eslintConfigPrettier.rules,
-      'prettier/prettier': 'error',
-      'arrow-body-style': 'off',
-      'prefer-arrow-callback': 'off',
+      ...importPlugin.configs.recommended.rules,
     },
   },
-  eslintPluginPrettierRecommended,
+  ...compat.extends('airbnb-base'),
+  {
+    rules: {
+      'no-underscore-dangle': [
+        'error',
+        {
+          allow: ['__filename', '__dirname'],
+        },
+      ],
+      'no-console': 'off',
+      'import/extensions': 'off',
+      'import/no-named-as-default': 'off',
+      'import/no-named-as-default-member': 'off',
+      'import/no-extraneous-dependencies': 'off',
+      'import/no-amd': 'off',
+      'import/no-mutable-exports': 'off',
+      'import/newline-after-import': 'off',
+    },
+  },
 ];
