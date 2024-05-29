@@ -2,6 +2,7 @@ import js from '@eslint/js';
 import globals from 'globals';
 import prettierPlugin from 'eslint-plugin-prettier';
 import eslintConfigPrettier from 'eslint-config-prettier';
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 
 /** @type {import('eslint').Linter.FlatConfig[]} */
 export default [
@@ -30,6 +31,9 @@ export default [
     rules: {
       ...eslintConfigPrettier.rules,
       'prettier/prettier': 'error',
+      'arrow-body-style': 'off',
+      'prefer-arrow-callback': 'off',
     },
   },
+  eslintPluginPrettierRecommended,
 ];
