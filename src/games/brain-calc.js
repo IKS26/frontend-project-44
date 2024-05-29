@@ -1,6 +1,5 @@
-import { playGame } from '../index.js';
-import { generateRandomIndex } from '../utils.js';
-import generateRandomNumber from '../utils.js';
+import playGame from '../index.js';
+import { generateRandomIndex, generateRandomNumber } from '../utils.js';
 
 const gameName = {
   'brain-calc': 'What is the result of the expression?',

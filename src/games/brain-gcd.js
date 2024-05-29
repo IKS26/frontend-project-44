@@ -1,5 +1,5 @@
-import { playGame } from '../index.js';
-import generateRandomNumber from '../utils.js';
+import playGame from '../index.js';
+import { generateRandomNumber } from '../utils.js';
 
 const gameName = {
   'brain-gcd': 'Find the greatest common divisor of given numbers.',
@@ -10,12 +10,14 @@ const min = 1;
 const max = 100;
 
 const findGCD = (num1, num2) => {
-  while (num2 !== 0) {
-    const temp = num2;
-    num2 = num1 % num2;
-    num1 = temp;
+  let a = num1;
+  let b = num2;
+  while (b !== 0) {
+    const temp = b;
+    b = a % b;
+    a = temp;
   }
-  return num1;
+  return a;
 };
 
 const generateTask = () => {

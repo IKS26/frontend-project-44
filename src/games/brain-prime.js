@@ -1,5 +1,5 @@
-import { playGame } from '../index.js';
-import generateRandomNumber from '../utils.js';
+import playGame from '../index.js';
+import { generateRandomNumber } from '../utils.js';
 
 const gameName = {
   'brain-prime':
