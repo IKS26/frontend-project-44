@@ -16,6 +16,8 @@ export default [
   js.configs.recommended,
   {
     languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
       globals: {
         ...globals.node,
         ...globals.browser,
@@ -28,7 +30,6 @@ export default [
     rules: {
       ...eslintConfigPrettier.rules,
       'prettier/prettier': 'error',
-      'implicit-arrow-linebreak': 'off',
     },
   },
 ];
