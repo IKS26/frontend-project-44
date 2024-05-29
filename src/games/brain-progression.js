@@ -13,8 +13,9 @@ const maxStart = 100;
 const minStep = 0;
 const maxStep = 8;
 
-const generateProgression = (length, start, step) =>
+const generateProgression = (length, start, step) => {
   Array.from({ length }, (_, i) => start + step * i);
+};
 
 const generateTask = () => {
   const length = generateRandomNumber(minLengthAllowed, maxLength);
