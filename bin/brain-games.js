@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-import { makeGreetings, askQuestionAboutName } from '../src/cli.js';
+import greet from '../src/cli.js';
 
-makeGreetings();
-
-askQuestionAboutName();
+greet();

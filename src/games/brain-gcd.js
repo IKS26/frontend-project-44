@@ -1,28 +1,31 @@
-import { gameDescriptions, playGame } from '../index.js';
+import { playGame } from '../index.js';
 import generateRandomNumber from '../utils.js';
 
-const gameName = 'brain-gcd';
-const gameDescription = gameDescriptions[gameName];
+const gameName = {
+  'brain-gcd': 'Find the greatest common divisor of given numbers.',
+};
+const description = gameName['brain-gcd'];
 
-const createDivisors = (num1, num2) => {
-  const minNum = Math.min(num1, num2);
-  const divisors = [];
-  for (let i = minNum; i > 0; i -= 1) {
-    if (num1 % i === 0 && num2 % i === 0) {
-      divisors.push(i);
-    }
+const min = 1;
+const max = 100;
+
+const findGCD = (num1, num2) => {
+  while (num2 !== 0) {
+    const temp = num2;
+    num2 = num1 % num2;
+    num1 = temp;
   }
-  return divisors;
+  return num1;
 };
 
-const generateGameData = () => {
-  const num1 = generateRandomNumber(1, 100);
-  const num2 = generateRandomNumber(1, 100);
+const generateTask = () => {
+  const num1 = generateRandomNumber(min, max);
+  const num2 = generateRandomNumber(min, max);
   const question = `${num1} ${num2}`;
-  const correctAnswer = String(Math.max(...createDivisors(num1, num2)));
+  const correctAnswer = String(findGCD(num1, num2));
   return { question, correctAnswer };
 };
 
-const playBrainGcd = () => playGame(generateGameData, gameDescription);
+const playBrainGcd = () => playGame(generateTask, description);
 
 export default playBrainGcd;

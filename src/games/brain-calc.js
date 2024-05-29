@@ -1,9 +1,15 @@
-import { gameDescriptions, playGame } from '../index.js';
+import { playGame } from '../index.js';
+import { generateRandomIndex } from '../utils.js';
 import generateRandomNumber from '../utils.js';
 
-const gameName = 'brain-calc';
-const gameDescription = gameDescriptions[gameName];
+const gameName = {
+  'brain-calc': 'What is the result of the expression?',
+};
+const description = gameName['brain-calc'];
 const operations = ['+', '-', '*'];
+
+const min = 1;
+const max = 100;
 
 const getOperationFunction = (operation) => {
   switch (operation) {
@@ -18,16 +24,17 @@ const getOperationFunction = (operation) => {
   }
 };
 
-const generateGameData = () => {
-  const num1 = generateRandomNumber(1, 100);
-  const num2 = generateRandomNumber(1, 100);
-  const operation = operations[Math.floor(Math.random() * operations.length)];
+const generateTask = () => {
+  const num1 = generateRandomNumber(min, max);
+  const num2 = generateRandomNumber(min, max);
+  const randomIndex = generateRandomIndex(operations);
+  const operation = operations[randomIndex];
   const question = `${num1} ${operation} ${num2}`;
   const correctAnswer = String(getOperationFunction(operation)(num1, num2));
 
   return { question, correctAnswer };
 };
 
-const playBrainCalc = () => playGame(generateGameData, gameDescription);
+const playBrainCalc = () => playGame(generateTask, description);
 
 export default playBrainCalc;

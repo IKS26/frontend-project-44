@@ -1,33 +1,32 @@
-import { gameDescriptions, playGame } from '../index.js';
+import { playGame } from '../index.js';
+import { generateRandomIndex } from '../utils.js';
+import generateRandomNumber from '../utils.js';
 
-const gameName = 'brain-progression';
-const gameDescription = gameDescriptions[gameName];
+const gameName = {
+  'brain-progression': 'What number is missing in the progression?',
+};
+const description = gameName['brain-progression'];
 
-const generateLengthOfProgr = (length) => Math.floor(Math.random() * (length / 2 + 1)) + length / 2;
-const generateStartNumber = (length) => Math.floor(Math.random() * length);
-const generateStepOfProgression = (length) => Math.floor(Math.random() * length) + 1;
-const generateHiddenIndex = (length) => Math.floor(Math.random() * length);
+const minLengthAllowed = 5;
+const maxLength = 10;
+const minStart = 0;
+const maxStart = 100;
+const minStep = 0;
+const maxStep = 8;
 
-const generateProgression = (length, hiddenIndex, start, step) => {
-  const progression = [];
-  for (let i = 0; i < length; i += 1) {
-    if (i === hiddenIndex) {
-      progression.push('..');
-    } else {
-      progression.push(start + step * i);
-    }
-  }
-  return progression;
+const generateProgression = (length, start, step) => {
+  return Array.from({ length }, (_, i) => start + step * i);
 };
 
-const generateGameData = () => {
-  const length = generateLengthOfProgr(10);
-  const start = generateStartNumber(length);
-  const step = generateStepOfProgression(length);
-  const hiddenIndex = generateHiddenIndex(length);
-  const progression = generateProgression(length, hiddenIndex, start, step);
+const generateTask = () => {
+  const length = generateRandomNumber(minLengthAllowed, maxLength);
+  const start = generateRandomNumber(minStart, maxStart);
+  const step = generateRandomNumber(minStep, maxStep);
+  const progression = generateProgression(length, start, step);
+  const hiddenIndex = generateRandomIndex(progression);
+  const correctAnswer = String(progression[hiddenIndex]);
+  progression[hiddenIndex] = '..';
   const question = progression.join(' ');
-  const correctAnswer = String(start + step * hiddenIndex);
 
   return {
     question,
@@ -35,6 +34,6 @@ const generateGameData = () => {
   };
 };
 
-const playBrainProgression = () => playGame(generateGameData, gameDescription);
+const playBrainProgression = () => playGame(generateTask, description);
 
 export default playBrainProgression;
